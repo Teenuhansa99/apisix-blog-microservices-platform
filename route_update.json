@@ -1,0 +1,10 @@
+﻿{
+  "uri": "/auth/*",
+  "upstream_id": "auth-upstream",
+  "methods": ["POST", "GET"],
+  "plugins": {
+    "proxy-rewrite": {
+      "regex_uri": ["^/auth/(.*)$", "/$1"]
+    }
+  }
+}
