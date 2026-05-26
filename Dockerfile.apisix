@@ -1,0 +1,6 @@
+FROM apache/apisix:latest
+
+# Patch all Lua files to use 'etcd:2379' instead of '127.0.0.1:2379'
+RUN find /usr/local/apisix -name "*.lua" -type f -exec sed -i 's/127\.0\.0\.1:2379/etcd:2379/g' {} \;
+
+WORKDIR /usr/local/apisix
